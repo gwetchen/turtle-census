@@ -72,6 +72,8 @@ export default class ChartBaseFrequencyComponent extends Component {
     showThreshold = false;
     thresholdMin = 0;
     thresholdMax = 999;
+    upperthresholdMin = 1;
+    upperthresholdMax = 9999;
     useSpectrum = false;
     spectrumStart = "gray";
     spectrumMid = undefined;
@@ -97,8 +99,10 @@ export default class ChartBaseFrequencyComponent extends Component {
         let labels = [];
         for (let i = 0; i < this.data.length; i++) {
             if (this.data[i] >= this.threshold) {
-                data.push(this.data[i]);
-                labels.push(this.labels[i]);
+                if (this.data[i] <= this.upperthreshold){
+                    data.push(this.data[i]);
+                    labels.push(this.labels[i]);
+                }
             }
         }
         let borderWidth = this.borderWidth;
@@ -156,6 +160,24 @@ export default class ChartBaseFrequencyComponent extends Component {
             this.renderChart();
         } else {
             this.threshold = newValue;
+            this.renderChart();
+        }
+    }
+
+    @action onupperThresholdChange(event) {
+        let value = event.srcElement.value;
+        let oldValue = this.upperthreshold;
+        let newValue = parseInt(value);
+        if (isNaN(newValue)) {
+            event.srcElement.value = oldValue;
+        } else if (newValue < this.upperthresholdMin) {
+            this.upperthreshold = this.upperthresholdMin;
+            this.renderChart();
+        } else if (newValue > this.upperthresholdMax) {
+            this.upperthreshold = this.upperthresholdMax;
+            this.renderChart();
+        } else {
+            this.upperthreshold = newValue;
             this.renderChart();
         }
     }

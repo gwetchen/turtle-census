@@ -27,7 +27,14 @@
 
 #chart-minimum-input {
     margin-left: 1rem;
-    width: 3rem;
+    margin-right: 4rem;
+    width: 4rem;
+    text-align: end;
+}
+
+#chart-maximum-input {
+    margin-left: 1rem;
+    width: 4rem;
     text-align: end;
 }
 

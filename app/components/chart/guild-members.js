@@ -10,6 +10,7 @@ export default class ChartGuildMembersComponent extends ChartBaseFrequencyCompon
     showThreshold = true;
     @tracked threshold = 10;
     @tracked chartType = "doughnut";
+    @tracked upperthreshold = 9999;
     labels = [];
     useSpectrum = true;
     spectrumStart = "orange";

@@ -9,6 +9,9 @@
     <label for="chart-minimum-input">Minimum:</label>
     <input id="chart-minimum-input" inputmode="numeric" pattern="[0-9]*" min={{this.thresholdMin}}
         max={{this.thresholdMax}} value={{this.threshold}} {{on "change" this.onThresholdChange}} />
+        <label for="chart-maximum-input">Maximum:</label>
+    <input id="chart-maximum-input" inputmode="numeric" pattern="[0-9]*" min={{this.upperthresholdMin}}
+        max={{this.upperthresholdMax}} value={{this.upperthreshold}} {{on "change" this.onupperThresholdChange}} />
 </div>
 {{/if}}
 {{#if this.useFactionFilter}}
