@@ -6,7 +6,7 @@ import { inject as service } from '@ember/service';
 export default class DataLoaderService extends Service {
     @service config;
 
-    rawDataUri = '/assets/raw/CensusPlus.lua';
+    rawDataUri = '/assets/raw/CensusPlusTurtle.lua';
 
     async load() {
         let raw = await fetch(this.rawDataUri)
