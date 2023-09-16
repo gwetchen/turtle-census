@@ -71,7 +71,7 @@ export default class ChartBaseFrequencyComponent extends Component {
     borderRadius = this.config.chartBorderRadius;
     showThreshold = false;
     thresholdMin = 0;
-    thresholdMax = 999;
+    thresholdMax = 99999;
     upperthresholdMin = 1;
     upperthresholdMax = 99999;
     useSpectrum = false;
