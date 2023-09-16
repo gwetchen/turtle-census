@@ -6,7 +6,7 @@ import { inject as service } from '@ember/service';
 export default class DataLoaderService extends Service {
     @service config;
 
-    rawDataUri = '/assets/raw/CensusPlusTurtle.lua';
+    rawDataUri = '/assets/raw/result.json';
 
     async load() {
         let raw = await fetch(this.rawDataUri)
@@ -14,7 +14,7 @@ export default class DataLoaderService extends Service {
                 this.lastUpdated = new Date(response.headers.get('Last-Modified'));
                 return response.text();
             });
-        let json = this._parseLua(raw);
+        let json = JSON.parse(raw);
         return this._load(json);
     }
 
