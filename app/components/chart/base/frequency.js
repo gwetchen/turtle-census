@@ -73,7 +73,7 @@ export default class ChartBaseFrequencyComponent extends Component {
     thresholdMin = 0;
     thresholdMax = 999;
     upperthresholdMin = 1;
-    upperthresholdMax = 9999;
+    upperthresholdMax = 99999;
     useSpectrum = false;
     spectrumStart = "gray";
     spectrumMid = undefined;
